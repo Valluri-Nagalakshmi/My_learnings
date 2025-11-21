@@ -82,31 +82,9 @@ Alloc/free patterns create **holes**.
 | Waste type       | Inside block                 | Between blocks                      |
 | Prevention       | Smaller blocks               | Paging, compaction, slab allocator  |
 
-## 6. Other Forms of Fragmentation
 
-### 6.1 Filesystem Fragmentation
-- **Internal**: block-size waste  
-- **External**: file stored in non-contiguous blocks  
 
-Modern FS fix this with:
-- Extents
-- Preallocation
-- Delayed allocation
-
-### 6.2 Heap Fragmentation
-Holes created by malloc/free patterns.
-
-### 6.3 Paging Fragmentation
-Internal fragmentation only.
-
-### 6.4 Stack vs Heap
-- Stack: no fragmentation  
-- Heap: fragmentation builds over time  
-
-### 6.5 GPU Fragmentation
-Due to VRAM allocation.
-
-## 7. How OS Reduces Fragmentation
+## 6. How OS Reduces Fragmentation
 
 ### Reduce internal fragmentation
 - Smaller blocks  
@@ -124,7 +102,7 @@ Due to VRAM allocation.
 - Best-fit / first-fit
 - Slab allocator
 
-## 8. Real Examples
+## 7. Real Examples
 
 1. File = 298B → block = 4096B → internal fragmentation  
 2. Heap holes block larger allocs  
@@ -132,65 +110,39 @@ Due to VRAM allocation.
 4. File stored non-contiguously  
 5. Kernel uses slab caches  
 
-## 9. Interview Questions (with answers)
+# Memory Fragmentation — Interview Q&A in One-Sentence Format
 
-### Q1: What is fragmentation?
-Memory broken into unusable pieces.
+---
 
-### Q2: Types?
-Internal, External.
+### **1. What is memory fragmentation?**  
+Memory fragmentation is a condition where available memory becomes divided into small unusable pieces, preventing large contiguous allocations.
 
-### Q3: Difference?
-Internal = inside block waste  
-External = between blocks waste
+### **2. What are the two main types of memory fragmentation?**  
+The two types are **internal fragmentation** and **external fragmentation**.
 
-### Q4: Why internal fragmentation?
-Fixed block size.
+### **3. What is internal fragmentation?**  
+Internal fragmentation occurs when a fixed-size allocated block is not fully used, causing wasted memory inside the block.
 
-### Q5: Why external?
-Variable alloc/free.
+### **4. What causes internal fragmentation?**  
+It is caused by **fixed block or page sizes** where the allocation is larger than the requested size.
 
-### Q6: How OS avoids it?
-Paging, compaction, slab.
+### **5. What is external fragmentation?**  
+External fragmentation occurs when free memory is available but scattered into non-contiguous chunks, preventing large allocations.
 
-### Q7: How ext4 avoids fragmentation?
-Extents.
+### **6. What causes external fragmentation?**  
+It is caused by **variable-size allocations and deallocations** that leave holes in memory over time.
 
-### Q8: Paging removes?
-External: yes  
-Internal: no
+### **7. Give an example of internal fragmentation.**  
+A 298-byte file stored in a 4096-byte block wastes the remaining 3798 bytes as internal fragmentation.
 
-### Q9: Segmentation suffers?
-Both.
+### **8. Give an example of external fragmentation.**  
+A process requesting 30 KB fails even though free memory is 10 KB + 12 KB + 15 KB because it is not contiguous.
 
-### Q10: Examples of internal frag?
-FS block waste, struct padding.
+### **9. What is memory compaction?**  
+Memory compaction is an OS technique that moves allocated blocks together to create one large contiguous free memory region, reducing external fragmentation.
 
-### Q11: External frag examples?
-Heap holes, scattered file blocks.
+### **10. Does paging eliminate fragmentation?**  
+Paging eliminates **external fragmentation** but still causes **internal fragmentation** in the last page.
 
-### Q12: Can external frag be removed?
-Paging removes it.
+---
 
-### Q13: Why slab allocator?
-Fixed-size caches reduce holes.
-
-### Q14: Compaction?
-Move memory to form large free areas.
-
-### Q15: Why no stack frag?
-LIFO behavior.
-
-### Q16: Why file occupies more than size?
-Block allocation.
-
-## 10. Summary
-
-### Internal Fragmentation
-Wasted inside block.
-
-### External Fragmentation
-Scattered free space.
-
-### Solutions
-Paging, extents, slab, compaction.
