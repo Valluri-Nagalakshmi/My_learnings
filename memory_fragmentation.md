@@ -1,10 +1,10 @@
-# 📘 MEMORY FRAGMENTATION — COMPLETE DETAILED NOTES
+#  MEMORY FRAGMENTATION — COMPLETE DETAILED NOTES
 
 ## 1. What is Memory Fragmentation?
 
 Memory fragmentation happens when memory is divided into small unusable pieces that cannot satisfy allocation requests even though the total free memory is enough.
 
-👉 **Total free memory is sufficient, but not *contiguous* or not *usable***.
+ **Total free memory is sufficient, but not *contiguous* or not *usable***.
 
 Fragmentation occurs in:
 - RAM
