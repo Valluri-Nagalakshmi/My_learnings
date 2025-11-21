@@ -305,5 +305,107 @@ int main() {
 
 ---
 
+# Polymorphism Interview Questions
+
+## 1. What is polymorphism in C++?
+Polymorphism is the ability of a function, method, or operator to behave differently based on the object or data type it is working on.
+
+---
+
+## 2. What are the two types of polymorphism in C++?
+- Compile-Time Polymorphism  
+- Run-Time Polymorphism  
+
+---
+
+## 3. What is the difference between compile-time and run-time polymorphism?
+- **Compile-time polymorphism:** Resolved by the compiler (function overloading, operator overloading).  
+- **Run-time polymorphism:** Resolved at runtime using virtual functions and overriding.
+
+---
+
+## 4. What is function overloading?
+Function overloading means creating multiple functions with the same name but different parameter types or counts.
+
+---
+
+## 5. What is function overriding?
+When a derived class provides a new definition of a function already defined in the base class.
+
+---
+
+## 6. What is a virtual function?
+A function declared in the base class using the `virtual` keyword that supports run-time polymorphism.
+
+---
+
+## 7. Why do we use the `virtual` keyword?
+To ensure the correct overridden function (derived class version) is called during runtime using base class pointers.
+
+---
+
+## 8. Can we achieve runtime polymorphism without virtual functions?
+No. Without `virtual`, the base class version gets called due to static binding.
+
+---
+
+## 9. What is a pure virtual function?
+A function declared with `= 0` in the base class, which forces derived classes to override it.
+
+---
+
+## 10. What is an abstract class?
+A class containing at least one pure virtual function. Objects of an abstract class cannot be created.
+
+---
+
+## 11. What is a vtable and vptr?
+- **vtable:** A table of pointers to virtual functions.  
+- **vptr:** A hidden pointer inside each object that points to its class’s vtable.
+
+---
+
+## 12. What is the difference between overloading and overriding?
+- **Overloading:** Same name, different parameters (compile-time).  
+- **Overriding:** Same name, same parameters (run-time).
+
+---
+
+## 13. Can constructors be virtual? Why?
+No. Virtual dispatch works only on objects already created.
+
+---
+
+## 14. Can destructors be virtual? Why?
+Yes. Virtual destructors ensure proper cleanup when deleting objects through base class pointers.
+
+---
+
+## 15. Can we overload operators in C++? Does it relate to polymorphism?
+Yes, operator overloading is a form of **compile-time polymorphism**.
+
+---
+
+## 16. What happens if we don’t declare a base class function as virtual?
+The function call will bind statically, calling the base version always — preventing runtime polymorphism.
+
+---
+
+## 17. What is dynamic binding?
+The process of resolving function calls at runtime based on the actual object type (via virtual functions).
+
+---
+
+## 18. What is method hiding in C++?
+If a derived class function has the same name but different parameters as a base class function, the base function gets hidden.
+
+---
+
+## 19. Can polymorphism occur without inheritance?
+- **Compile-time polymorphism:** Yes (overloading).  
+- **Run-time polymorphism:** No, inheritance and virtual functions are required.
+
+---
+
 
 
