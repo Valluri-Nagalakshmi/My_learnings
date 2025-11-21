@@ -5,24 +5,6 @@ The word *polymorphism* means **“many forms”**, and in C++ it allows the sam
 
 ---
 
-## 📘 Table of Contents
-
-1. [What Is Polymorphism?](#what-is-polymorphism)
-2. [Types of Polymorphism](#types-of-polymorphism)
-3. [Compile-Time Polymorphism](#compile-time-polymorphism)
-   - [Function Overloading](#Function-Overloading)
-   - [Operator Overloading](#Operator-Overloading)
-4. [Run-Time Polymorphism](#run-time-polymorphism)
-   - [Function Overriding](#function-overriding)
-   - [How Runtime Polymorphism Works](#how-runtime-polymorphism-works)
-5. [Difference Between Compile-Time and Run-Time Polymorphism](#difference-between-compile-time-and-run-time-polymorphism)
-6. [Why Polymorphism Is Important](#why-polymorphism-is-important)
-7. [Short Exam-Friendly Definitions](#short-exam-friendly-definitions)
-8. [Small Example Programs](#small-example-programs)
-9. [Final Summary](#final-summary)
-
----
-
 # What Is Polymorphism?
 
 Polymorphism allows the same function name or operator to behave differently based on the object or data type involved.
@@ -68,7 +50,7 @@ A function can be overloaded by:
 - Changing the *number* of parameters  
 - Changing the *type* of parameters  
 
-### ✔ Example
+###  Example
 
 ```cpp
 #include <iostream>
@@ -97,7 +79,7 @@ Why operator overloading?
 * Natural mathematical expressions (e.g., `c1 + c2`)
 * Custom behavior for objects
 
-### ✔ Example — Overloading `+`
+###  Example — Overloading `+`
 
 ```cpp
 #include <iostream>
@@ -146,7 +128,7 @@ Achieved using:
 
 Function overriding occurs when a **derived class** provides its own implementation for a function already defined in the **base class**.
 
-### ✔ Example
+###  Example
 
 ```cpp
 #include <iostream>
@@ -244,7 +226,7 @@ s->draw();    // Rectangle's implementation
 
 ---
 
-### ✔ Program 1 — Function Overloading
+###  Program 1 — Function Overloading
 
 ```cpp
 #include <iostream>
@@ -265,7 +247,7 @@ int main() {
 
 ---
 
-### ✔ Program 2 — Operator Overloading (`+`)
+###  Program 2 — Operator Overloading (`+`)
 
 ```cpp
 #include <iostream>
@@ -292,7 +274,7 @@ int main() {
 
 ---
 
-### ✔ Program 3 — Runtime Polymorphism Using Virtual Functions
+###  Program 3 — Runtime Polymorphism Using Virtual Functions
 
 ```cpp
 #include <iostream>
@@ -323,21 +305,5 @@ int main() {
 
 ---
 
-# Final Summary
 
-Polymorphism is essential to achieving:
-
-* Extensibility
-* Reusability
-* Cleaner OOP design
-* Flexible function/behavior selection
-
-C++ supports two major types:
-
-* **Compile-Time Polymorphism** → Overloading
-* **Run-Time Polymorphism** → Virtual functions + overriding
-
-Polymorphism helps build modular, scalable, real-world C++ applications.
-
----
 
